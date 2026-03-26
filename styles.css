@@ -179,3 +179,14 @@ nav a:hover { color: var(--saffron); }
 .gallery { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 .gallery img { border-radius: 12px; transition: 0.3s; border: 1px solid var(--border); }
 .gallery img:hover { transform: scale(1.05); border-color: var(--green); }
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes technoPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.05) rotate(180deg); opacity: 1; }
+}
