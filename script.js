@@ -1,181 +1,85 @@
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
+// 1. Handle the Enter Key / Form Submission
 function handleFormSubmit(event) {
-    // This stops the page from refreshing
-    event.preventDefault(); 
-    // This calls your existing function to hide the modal and show the greeting
+    event.preventDefault(); // STOPS THE REFRESH
     handleContinueClick();
     return false;
 }
 
-// Handle continue button click
+// 2. Main Continue Logic
 function handleContinueClick() {
     const nameModal = document.getElementById('name-modal');
     const visitorInput = document.getElementById('visitor-name');
     const name = visitorInput.value.trim();
-    
+
     if (name === '') {
         visitorInput.focus();
         return;
     }
 
-    nameModal.classList.add('modal-hidden');
-    document.body.classList.remove('modal-active');
-    
-    const cursor = document.getElementById('cursor');
-    const cursorBlur = document.getElementById('cursor-blur');
-    if (cursor && cursorBlur) {
-        cursor.style.display = 'block';
-        cursorBlur.style.display = 'block';
-    }
-
-    const greetingElem = document.createElement('div');
-    greetingElem.id = 'welcome-message';
-    greetingElem.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 15000; background: rgba(0,0,0,0.75); color: #fff; padding: 12px 16px; border-radius: 12px; font-weight: 600; box-shadow: 0 0 20px rgba(0, 255, 113, 0.35);';
-    greetingElem.textContent = `Welcome, ${name}! Enjoy the production journey.`;
-    document.body.appendChild(greetingElem);
-
+    // Hide Modal with transition
+    nameModal.style.opacity = '0';
     setTimeout(() => {
-        greetingElem.remove();
-    }, 4500);
+        nameModal.classList.add('modal-hidden');
+        document.body.classList.remove('modal-active');
+        
+        // Show custom cursor after modal is gone
+        document.getElementById('cursor').style.opacity = '1';
+        document.getElementById('cursor-blur').style.opacity = '1';
+    }, 500);
+
+    // Show custom welcome toast
+    const welcome = document.createElement('div');
+    welcome.style.cssText = `
+        position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+        background: rgba(255, 153, 51, 0.2); backdrop-filter: blur(10px);
+        border: 1px solid #FF9933; color: white; padding: 1rem 2rem;
+        border-radius: 15px; font-weight: bold; animation: fadeInUp 0.5s ease;
+    `;
+    welcome.textContent = `Namaste, ${name}!`;
+    document.body.appendChild(welcome);
+    setTimeout(() => welcome.remove(), 4000);
 }
 
+// 3. Custom Cursor Movement
+const cursor = document.getElementById('cursor');
+const blur = document.getElementById('cursor-blur');
 
+let mX = 0, mY = 0;
+let bX = 0, bY = 0;
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+document.addEventListener('mousemove', (e) => {
+    mX = e.clientX;
+    mY = e.clientY;
+    cursor.style.transform = `translate(${mX}px, ${mY}px)`;
 });
 
-
-function validateForm() {
-    const email = document.getElementById('email');
-    const message = document.getElementById('message');
-    let isValid = true;
-
-    if (!email.value || !email.value.includes('@')) {
-        alert('Please enter a valid email address.');
-        isValid = false;
-    }
-
-    if (!message.value.trim()) {
-        alert('Please enter a message.');
-        isValid = false;
-    }
-
-    return isValid;
+function animateBlur() {
+    bX += (mX - bX) * 0.1; // Smooth following
+    bY += (mY - bY) * 0.1;
+    blur.style.transform = `translate(${bX - 175}px, ${bY - 175}px)`;
+    requestAnimationFrame(animateBlur);
 }
+animateBlur();
 
-// Add event listener for form submission if form exists
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        if (!validateForm()) {
-            e.preventDefault();
-        }
-    });
-}
-
-// Custom cursor implementation
-const cursor = document.getElementById('cursor');
-const cursorBlur = document.getElementById('cursor-blur');
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let blurX = mouseX;
-let blurY = mouseY;
-
-if (cursor && cursorBlur) {
-    document.addEventListener('mousemove', (event) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    });
-
-    const render = () => {
-        blurX += (mouseX - blurX) * 0.15;
-        blurY += (mouseY - blurY) * 0.15;
-        cursorBlur.style.transform = `translate(${blurX}px, ${blurY}px)`;
-        requestAnimationFrame(render);
-    };
-
-    requestAnimationFrame(render);
-
-    const hoverTargets = document.querySelectorAll('a, button, input, textarea, .btn');
-    hoverTargets.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover-active');
-            cursorBlur.classList.add('hover-active');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover-active');
-            cursorBlur.classList.remove('hover-active');
-        });
-    });
-
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-        cursorBlur.style.opacity = '0';
-    });
-
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-        cursorBlur.style.opacity = '1';
-    });
-}
-
-// Loader and name prompt flow
+// 4. Loader Logic
 window.addEventListener('load', () => {
-    const loaderOverlay = document.getElementById('loader-overlay');
-    const nameModal = document.getElementById('name-modal');
-    const visitorInput = document.getElementById('visitor-name');
+    const loader = document.getElementById('loader-overlay');
+    const modal = document.getElementById('name-modal');
 
-    if (nameModal) {
-        document.body.classList.add('modal-active');
-    }
+    setTimeout(() => {
+        loader.classList.add('modal-hidden');
+        modal.classList.remove('modal-hidden');
+        // Hide cursors while in modal
+        cursor.style.opacity = '0';
+        blur.style.opacity = '0';
+    }, 1500);
+});
 
-    if (loaderOverlay) {
-        setTimeout(() => {
-            loaderOverlay.classList.add('modal-hidden');
-            if (nameModal) {
-                nameModal.classList.remove('modal-hidden');
-                visitorInput?.focus();
-            } else {
-                document.body.classList.remove('modal-active');
-            }
-
-            const cursor = document.getElementById('cursor');
-            const cursorBlur = document.getElementById('cursor-blur');
-            if (cursor && cursorBlur && nameModal) {
-                cursor.style.display = 'none';
-                cursorBlur.style.display = 'none';
-            }
-        }, 1600);
-    }
+// 5. Smooth Scroll
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 });
