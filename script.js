@@ -11,6 +11,14 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
+function handleFormSubmit(event) {
+    // This stops the page from refreshing
+    event.preventDefault(); 
+    // This calls your existing function to hide the modal and show the greeting
+    handleContinueClick();
+    return false;
+}
+
 // Handle continue button click
 function handleContinueClick() {
     const nameModal = document.getElementById('name-modal');
