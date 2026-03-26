@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindustan United Productions - Short Productions</title>
+    <title>Hindustan United Productions | Short Productions</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<div id="cursor"></div>
-<div id="cursor-blur"></div>
-
 <body>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
     <div id="loader-overlay">
         <div class="loader-box">
             <div class="spinner"></div>
-            <p>Loading Hindustan United Productions...</p>
+            <p>Initializing Studio...</p>
         </div>
     </div>
 
     <div id="name-modal" class="modal-hidden">
         <div class="name-box">
-            <h2>Welcome!</h2>
-            <p>What's your name?</p>
+            <div class="modal-accent-line"></div>
+            <h2>Welcome</h2>
+            <p>Enter your name to begin the experience</p>
             <form id="name-form" onsubmit="handleFormSubmit(event)">
-                <input type="text" id="visitor-name" placeholder="Enter your name" required autofocus>
-                <button type="submit">Continue</button> 
+                <input type="text" id="visitor-name" placeholder="Your Name" required autofocus>
+                <button type="submit">Enter Studio</button>
             </form>
         </div>
     </div>
 
     <header>
         <h1 class="header-typing">Hindustan United Productions</h1>
-        <p class="header-typing">We do this for fun!!(What is happening??)</p>
+        <p>Crafting Stories. Creating Impact. 2026</p>
     </header>
+
     <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -39,103 +42,62 @@
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
     </nav>
+
     <main>
         <section id="about">
             <h2>About Us</h2>
-            <p>Welcome to <em>Hindustan United Productions(HUP)</em>, where we specialize in crafting compelling short productions. From documentaries to promotional videos, we bring stories to life with creativity and passion.</p>
-            <p>Founded in 2026, HUP has been at the forefront of short-form content creation, blending traditional storytelling with modern techniques to produce engaging and impactful videos.</p>
+            <p>Welcome to <em>HUP</em>. We specialize in compelling short productions, blending traditional storytelling with 2026 modern techniques.</p>
         </section>
 
         <section id="services">
             <h2>Our Services</h2>
-            <ul>
-                <li><strong>Short Documentaries:</strong> Capturing real stories in concise, powerful formats.</li>
-                <li><strong>Promotional Videos:</strong> Eye-catching content to boost your brand or event.</li>
-                <li><strong>Creative Shorts:</strong> Experimental storytelling for social media and beyond.</li>
-                <li><strong>Script Writing:</strong> Compelling narratives tailored to your vision.</li>
-                <li><strong>Post-Production:</strong> Professional editing, sound design, and visual effects.</li>
-            </ul>
+            <div class="services-grid">
+                <ul>
+                    <li><strong>Short Documentaries:</strong> Powerful real-world formats.</li>
+                    <li><strong>Promotional Videos:</strong> Viral-ready brand content.</li>
+                    <li><strong>Creative Shorts:</strong> Experimental social media storytelling.</li>
+                </ul>
+            </div>
         </section>
+
         <section id="portfolio">
-            <h2>Our Portfolio</h2>
-            <p>Check out some of our recent short productions:</p>
+            <h2>Portfolio</h2>
             <div class="gallery">
-                <img src="https://via.placeholder.com/200x150/333/fff?text=Doc+Series" alt="Acted Shorts">
-                <img src="https://via.placeholder.com/200x150/444/fff?text=Promo+Video" alt="Promotional Video">
-                <img src="https://via.placeholder.com/200x150/555/fff?text=Creative+Short" alt="Creative Short">
+                <img src="https://via.placeholder.com/250x180/333/fff?text=Doc+Series" alt="Shorts">
+                <img src="https://via.placeholder.com/250x180/444/fff?text=Promo+Video" alt="Promo">
+                <img src="https://via.placeholder.com/250x180/555/fff?text=Creative+Short" alt="Creative">
             </div>
         </section>
 
         <section id="team">
-            <h2>Our Team</h2>
-            <p>Meet our awesome team:</p>
+            <h2>The Team</h2>
             <table class="team-table">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Role</th>
-                    </tr>
+                    <tr><th>Name</th><th>Role</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Shaurya Ravikanth</td>
-                        <td>Director and Producer</td>
-                    </tr>
-                    <tr>
-                        <td>Shaurya & Suhas Reddy Sirumala</td>
-                        <td>Scriptwriter and Editor</td>
-                    </tr>
-                    <tr>
-                        <td>Hrishikesh</td>
-                        <td>Cinematographer & Main Editors</td>
-                    </tr>
-                    <tr>
-                        <td>Dheeraj Vavilala</td>
-                        <td>Actor</td>
-                    </tr>
-                    <tr>
-                        <td>Nidhish Kakkireni</td>
-                        <td>Actor</td>
-                    </tr>
-                    <tr>
-                        <td>Jai Anish Reddy Ontikommu</td>
-                        <td>Actor</td>
-                    </tr>
+                    <tr><td>Shaurya Ravikanth</td><td>Director & Producer</td></tr>
+                    <tr><td>Suhas Reddy Sirumala</td><td>Script & Editor</td></tr>
+                    <tr><td>Hrishikesh</td><td>Cinematographer</td></tr>
                 </tbody>
             </table>
         </section>
 
-        <section id="testimonials">
-            <h2>Testimonials</h2>
-            <div class="testimonial">
-                <p>"HUP delivered beyond our expectations. Their short documentary captured the essence of our cultural festival perfectly."</p>
-                <cite>- Cultural Event Organizer</cite>
-            </div>
-            <div class="testimonial">
-                <p>"The promotional video they created for our startup went viral! Highly recommend their creative shorts."</p>
-                <cite>- Tech Startup Founder</cite>
-            </div>
-        </section>
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Ready to collaborate on your next short production? Get in touch!</p>
+            <h2>Contact</h2>
             <form id="contact-form">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="4" placeholder="Your Message"></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
-            <p>Or reach us directly:</p>
-            <p>Email: info@hindustanunitedproductions.com</p>
-            <p>Phone: +91-123-456-7890</p>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2026 Hindustan United Productions. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
