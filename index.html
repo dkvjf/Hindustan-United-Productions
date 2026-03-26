@@ -21,9 +21,9 @@
         <div class="name-box">
             <h2>Welcome!</h2>
             <p>What's your name?</p>
-            <form id="name-form">
+            <form id="name-form" onsubmit="handleFormSubmit(event)">
                 <input type="text" id="visitor-name" placeholder="Enter your name" required autofocus>
-                <button type="button" onclick="handleContinueClick()">Continue</button>
+                <button type="submit">Continue</button> 
             </form>
         </div>
     </div>
