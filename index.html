@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindustan United Productions - Short Productions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+
+<body>
+    <div id="loader-overlay">
+        <div class="loader-box">
+            <div class="spinner"></div>
+            <p>Loading Hindustan United Productions...</p>
+        </div>
+    </div>
+
+    <div id="name-modal" class="modal-hidden">
+        <div class="name-box">
+            <h2>Welcome!</h2>
+            <p>What's your name?</p>
+            <form id="name-form">
+                <input type="text" id="visitor-name" placeholder="Enter your name" required autofocus>
+                <button type="button" onclick="handleContinueClick()">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <h1 class="header-typing">Hindustan United Productions</h1>
+        <p class="header-typing">We do this for fun!!(What is happening??)</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to <em>Hindustan United Productions(HUP)</em>, where we specialize in crafting compelling short productions. From documentaries to promotional videos, we bring stories to life with creativity and passion.</p>
+            <p>Founded in 2026, HUP has been at the forefront of short-form content creation, blending traditional storytelling with modern techniques to produce engaging and impactful videos.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li><strong>Short Documentaries:</strong> Capturing real stories in concise, powerful formats.</li>
+                <li><strong>Promotional Videos:</strong> Eye-catching content to boost your brand or event.</li>
+                <li><strong>Creative Shorts:</strong> Experimental storytelling for social media and beyond.</li>
+                <li><strong>Script Writing:</strong> Compelling narratives tailored to your vision.</li>
+                <li><strong>Post-Production:</strong> Professional editing, sound design, and visual effects.</li>
+            </ul>
+        </section>
+        <section id="portfolio">
+            <h2>Our Portfolio</h2>
+            <p>Check out some of our recent short productions:</p>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/200x150/333/fff?text=Doc+Series" alt="Acted Shorts">
+                <img src="https://via.placeholder.com/200x150/444/fff?text=Promo+Video" alt="Promotional Video">
+                <img src="https://via.placeholder.com/200x150/555/fff?text=Creative+Short" alt="Creative Short">
+            </div>
+        </section>
+
+        <section id="team">
+            <h2>Our Team</h2>
+            <p>Meet our awesome team:</p>
+            <table class="team-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shaurya Ravikanth</td>
+                        <td>Director and Producer</td>
+                    </tr>
+                    <tr>
+                        <td>Shaurya & Suhas Reddy Sirumala</td>
+                        <td>Scriptwriter and Editor</td>
+                    </tr>
+                    <tr>
+                        <td>Hrishikesh</td>
+                        <td>Cinematographer & Main Editors</td>
+                    </tr>
+                    <tr>
+                        <td>Dheeraj Vavilala</td>
+                        <td>Actor</td>
+                    </tr>
+                    <tr>
+                        <td>Nidhish Kakkireni</td>
+                        <td>Actor</td>
+                    </tr>
+                    <tr>
+                        <td>Jai Anish Reddy Ontikommu</td>
+                        <td>Actor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>"HUP delivered beyond our expectations. Their short documentary captured the essence of our cultural festival perfectly."</p>
+                <cite>- Cultural Event Organizer</cite>
+            </div>
+            <div class="testimonial">
+                <p>"The promotional video they created for our startup went viral! Highly recommend their creative shorts."</p>
+                <cite>- Tech Startup Founder</cite>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Ready to collaborate on your next short production? Get in touch!</p>
+            <form id="contact-form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <p>Or reach us directly:</p>
+            <p>Email: info@hindustanunitedproductions.com</p>
+            <p>Phone: +91-123-456-7890</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Hindustan United Productions. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
