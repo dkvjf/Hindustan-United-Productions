@@ -3,19 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindustan United Productions | Short Productions</title>
+    <title>Hindustan United Productions</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="cursor"></div>
-    <div id="cursor-blur"></div>
+    <header class="hero-header">
+        <video autoplay muted loop playsinline class="header-video">
+            <source src="Website Header.mp4" type="video/mp4">
+        </video>
+
+    <div class="header-content">
+        <h1 class="header-typing">Hindustan United Productions</h1>
+        <p>Crafting Stories. Creating Impact. 2026</p>
+        
+    </div>
+    <div id = "filler-box"></div>
+</header>
+
+<div class="visual-divider">
+    <div class="divider-content">
+        <div class="stat-item">
+            <span class="stat-number">24</span>
+            <span class="stat-label">FPS RAW</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="stat-item">
+            <span class="stat-number">4K</span>
+            <span class="stat-label">ULTRA HD</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="stat-item">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">PROJECTS</span>
+        </div>
+    </div>
+</div>
+
+    
 
     <div id="loader-overlay">
-        <div class="loader-box">
-            <div class="spinner"></div>
-            <p>Initializing Studio...</p>
+        <div class="spinner-container">
+            <div class="normal-spinner"></div>
+            <p>HUP 2026</p>
         </div>
+        <div class="loader-text">
+            <span class="letter">H</span>
+            <span class="letter">U</span>
+            <span class="letter">P</span>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
     </div>
 
     <div id="name-modal" class="modal-hidden">
@@ -24,16 +62,14 @@
             <h2>Welcome</h2>
             <p>Enter your name to begin the experience</p>
             <form id="name-form" onsubmit="handleFormSubmit(event)">
-                <input type="text" id="visitor-name" placeholder="Enter your name" required autofocus>
+                <input type="text" id="visitor-name" placeholder="Enter your name">
                 <button type="submit">Continue</button> 
-<            </form>
+                
+            </form>
         </div>
-    </div>
+    </div> 
+   
 
-    <header>
-        <h1 class="header-typing">Hindustan United Productions</h1>
-        <p>Crafting Stories. Creating Impact. 2026</p>
-    </header>
 
     <nav>
         <a href="#about">About</a>
@@ -44,12 +80,19 @@
     </nav>
 
     <main>
-        <section id="about">
+        
+        <section id="about" class = "home-box">
             <h2>About Us</h2>
-            <p>Welcome to <em>HUP</em>. We specialize in compelling short productions, blending traditional storytelling with 2026 modern techniques.</p>
+            <p>Welcome to <em>Hindustan United Productions(HUP)</em>. We specialize in compelling short productions, blending traditional storytelling with 2026 modern techniques.</p>
+            <br><br>
+            <p>We are a team of passionate creators dedicated to bringing stories to life through the power of visual storytelling. We all have our own humble beginnings, and ours started 
+                here in our small community. While talking and playing outside like usual, we came across the topic of movies, and that was the moment we decided to start making our own. 
+                We started with a simple phone camera and a lot of creativity, and from there, we have come a long way. And now here we are, making our own website! We hope you enjoy your 
+                experience while you are here!
+            </p>
         </section>
 
-        <section id="services">
+        <section id="services" class="home-box">
             <h2>Our Services</h2>
             <div class="services-grid">
                 <ul>
@@ -60,7 +103,7 @@
             </div>
         </section>
 
-        <section id="portfolio">
+        <section id="portfolio" class ="home-box">
             <h2>Portfolio</h2>
             <div class="gallery">
                 <img src="https://via.placeholder.com/250x180/333/fff?text=Doc+Series" alt="Shorts">
@@ -69,21 +112,28 @@
             </div>
         </section>
 
-        <section id="team">
+        <section id="team" class="home-box">
             <h2>The Team</h2>
             <table class="team-table">
                 <thead>
                     <tr><th>Name</th><th>Role</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Shaurya Ravikanth</td><td>Director & Producer</td></tr>
-                    <tr><td>Suhas Reddy Sirumala</td><td>Script & Editor</td></tr>
-                    <tr><td>Hrishikesh</td><td>Cinematographer</td></tr>
+                    <tr><td>Shaurya R.</td><td>Director & Producer</td></tr>
+                    <tr><td>Suhas Reddy S.</td><td>Actor, Script Editor & Coder</td></tr>
+                    <tr><td>Hrishikesh</td><td>Cinematographer & Editor</td></tr>
+                    <tr><td>Jai Anish O.</td><td>Cinematographer</td></tr>
+                    <tr><td>Nidhish K.</td><td>Actor, Musician & Coder</td></tr>
+                    <tr><td>Shreyas S.</td><td>Actor</td></tr>
+                    <tr><td>Adithya V.</td><td>Actor</td></tr>
+                    <tr><td>Dheeraj V.</td><td>Actor</td></tr>
+                    <tr><td>Shreyansh K.</td><td>Actor</td></tr>
                 </tbody>
             </table>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="home-box">
+             
             <h2>Contact</h2>
             <form id="contact-form">
                 <input type="text" placeholder="Name" required>
@@ -96,8 +146,14 @@
 
     <footer>
         <p>&copy; 2026 Hindustan United Productions. All rights reserved.</p>
+        <p ><a href="admin.html">Admin Control</a></p>
     </footer>
 
     <script src="script.js"></script>
+    <script src ="admin.js"></script>
+
+    <div id="cursor"></div>       
+    <div id="cursor-blur"></div>
+    
 </body>
 </html>
